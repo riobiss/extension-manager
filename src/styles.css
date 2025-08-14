@@ -11,7 +11,7 @@
   --neutral-100: hsl(0, 0%, 93%);
   --neutral-0: hsl(200, 60%, 99%);
 
- --red-400: hsl(3, 86%, 64%);
+  --red-400: hsl(3, 86%, 64%);
   --red-500: hsl(3, 71%, 56%);
   --red-700: hsl(3, 77%, 44%);
 
@@ -30,8 +30,9 @@
 
 body {
   width: 100%;
- height: 100dvh;
+  height: 100dvh;
   background: var(--dark-gradient) no-repeat;
+  overflow-x: hidden;
 }
 
 .container {
@@ -40,12 +41,10 @@ body {
   display: flex;
   flex-flow: column nowrap;
   gap: 20px;
-
-
 }
- .focused:focus{
+.focused:focus {
   outline: 2px solid var(--red-400);
- }
+}
 
 .extensionMode {
   display: flex;
@@ -68,7 +67,7 @@ body {
 }
 
 #extensionList {
-text-align: center;
+  text-align: center;
 }
 .selecao {
   width: 90%;
@@ -84,9 +83,10 @@ text-align: center;
   font-size: 1.3rem;
   border-radius: 1.5rem;
   padding: 0.9rem;
-  flex-basis: 300px;
+  flex-basis: 300;
   flex-grow: 1;
   flex-shrink: 1;
+  
 }
 
 .containerItem {
@@ -96,6 +96,72 @@ text-align: center;
   border: 1px solid grey;
 }
 
-.logo{
+.logo {
   float: left;
+}
+.removeAndActive {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+#remove {
+  background-color: transparent;
+  border: 1px solid grey;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+#active {
+  background-color: transparent;
+}
+
+/* Container do switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+}
+
+/* Esconde o checkbox padrão */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Trilho */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a2e39; /* cor de fundo desligado */
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+/* Bolinha */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ff4d4d; /* vermelho */
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+/* Quando está ligado */
+.switch input:checked + .slider {
+  background-color: var(--red-400); /* mantém o fundo escuro */
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(16px); /* move a bolinha pra direita */
+background-color: var(--neutral-0);
 }
