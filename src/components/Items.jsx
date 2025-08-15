@@ -1,6 +1,7 @@
 import React from "react";
 import data from "../data.json";
 import Entry from "./Entry";
+
 /* console.log(data)
 console.log(data[1].name)  */
 

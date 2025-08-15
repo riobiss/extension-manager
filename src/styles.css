@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
- :root {
+:root {
   --neutral-forte: hsl(0, 0%, 78%);
   --neutral-terceira: hsl(217, 61%, 90%);
   --neutral-secundaria: hsl(0, 0%, 93%);
@@ -9,27 +9,27 @@
   --contraste: rgb(0, 0, 0);
 
   --shadow: 1px 1px 4px rgba(0, 0, 0, 0.365);
+  --text: rgb(1, 1, 1);  
 
   --red-400: hsl(3, 86%, 64%);
   --red-500: hsl(3, 71%, 56%);
   --red-700: hsl(3, 77%, 44%);
 
   --cor-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
-
-} 
-
+}
 
 [data-theme="dark"] {
   --neutral-forte: hsl(227, 75%, 14%);
-  --neutral-terceira: hsl(226, 25%, 17%);
-  --neutral-secundaria: hsl(225, 23%, 24%);
-  --neutral-principal: hsla(226, 11%, 37%, 0.336);
+  --neutral-terceira: #1D1E26;
+  --neutral-secundaria: #4d4e53;
+  --neutral-principal: #363740;
   --contraste: rgb(255, 255, 255);
-  --shadow: 1px 1px 4px rgba(199, 199, 199, 0.295);
+  
+  --shadow: 1px 1px 4px rgba(122, 122, 122, 0.144);
+  --text: rgb(177, 177, 177);
 
-  --cor-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --cor-gradient: linear-gradient(180deg, #1D1E26 0%, #091540 100%);
 }
-
 
 * {
   margin: 0px;
@@ -42,15 +42,9 @@
 #corpao {
   width: 100%;
   overflow-x: hidden;
-  
   background: var(--cor-gradient) no-repeat;
   background-color: var(--neutral-forte);
 }
-
-h1, h2, p, #btnButtonMode {
-  color: var(--contraste);
-}
-
 .container {
   width: 90%;
   margin: auto;
@@ -58,8 +52,12 @@ h1, h2, p, #btnButtonMode {
   flex-flow: column nowrap;
   gap: 20px;
 }
-.focused:focus {
-  outline: 2px solid var(--red-400);
+
+h1,
+h2,
+p,
+#btnButtonMode, .selecao button {
+  color: var(--text);
 }
 
 .extensionMode {
@@ -70,6 +68,7 @@ h1, h2, p, #btnButtonMode {
   border-radius: 10px;
   background-color: var(--neutral-principal);
   padding: 10px;
+  box-shadow: var(--shadow);
 }
 
 #btnThemeMode {
@@ -77,13 +76,29 @@ h1, h2, p, #btnButtonMode {
   height: 2.6rem;
   background-color: var(--neutral-secundaria);
   border-radius: 7px;
-  cursor: pointer;
+}
+
+#btnThemeMode button:focus,
+.selecao button:focus,
+#remove:focus {
+  outline: 2px solid var(--red-400);
+  outline-offset: 1px;
+}
+input:focus {
+  outline: 2px solid red;
+}
+#btnThemeMode button {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border-radius: 7px;
 }
 #btnThemeMode img {
-  width: 100%;
+  width: 60%;
   max-width: 35px;
 }
 #categoriaCenter {
@@ -101,25 +116,23 @@ h1, h2, p, #btnButtonMode {
   justify-content: space-evenly;
   padding: 10px;
   gap: 10px;
-
 }
 
 .selecao button {
   background-color: var(--neutral-secundaria);
-  color: var(--contraste);
   font-size: 1.3rem;
   border-radius: 1.5rem;
   padding: 0.4rem;
   flex-basis: 300;
   flex-grow: 1;
   flex-shrink: 1;
-  cursor: pointer; 
+  cursor: pointer;
   border: 1px solid var(--neutral-forte);
   box-shadow: var(--shadow);
 }
 
 .selecao button:hover {
-  transition: .2s;
+  transition: 0.2s;
   background-color: var(--red-500);
   color: var(--neutral-forte);
 }
@@ -127,6 +140,7 @@ h1, h2, p, #btnButtonMode {
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
+  
 }
 
 .containerItem {
@@ -134,16 +148,27 @@ h1, h2, p, #btnButtonMode {
   border-radius: 15px;
   padding: 20px;
   border: 1px solid var(--neutral-forte);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap:  20px;
 }
 
-.logo {
+.logos {
   float: left;
+  height: 3rem;
+}
+.container p {
+  font-size: 15px;
+  text-align: center;
 }
 .removeAndActive {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 #remove {
   background-color: transparent;
@@ -152,7 +177,7 @@ h1, h2, p, #btnButtonMode {
   border-radius: 20px;
   font-size: 1rem;
   cursor: pointer;
-  color: var(--contraste ) ;
+  color: var(--contraste);
 }
 
 #remove:hover {
@@ -160,6 +185,7 @@ h1, h2, p, #btnButtonMode {
   background-color: var(--red-700);
   color: var(--neutral-terceira);
 }
+
 #active {
   background-color: transparent;
 }
@@ -187,7 +213,7 @@ h1, h2, p, #btnButtonMode {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--neutral-forte); /* cor de fundo desligado */
+  background-color: rgb(124, 124, 124); /* cor de fundo desligado */
   transition: 0.3s;
   border-radius: 20px;
 }
@@ -200,9 +226,10 @@ h1, h2, p, #btnButtonMode {
   width: 14px;
   left: 3px;
   bottom: 3px;
-  background-color: var(--neutral-principal);
+  background-color: white;
   transition: 0.3s;
   border-radius: 50%;
+  
 }
 
 /* Quando está ligado */
@@ -214,6 +241,6 @@ h1, h2, p, #btnButtonMode {
 }
 
 .switch input:checked + .slider:before {
-  transform: translateX(16px); /* move a bolinha pra direita */
-background-color: var(--neutral-principal);
+  transform: translateX(1rem); /* move a bolinha pra direita */
+
 }

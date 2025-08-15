@@ -15,8 +15,10 @@ function Cabecalho({isDark, toggleTheme}) {
   return (
     <div className="extensionMode">
       <img id="logoInit" src={Logo} alt="Logo" />
-      <div onClick={clickImg } id="btnThemeMode" className="focused">
-        <img  src={isImg ? Sun : Moon} alt="Moon" />
+      <div onClick={clickImg } id="btnThemeMode">
+        <button>
+          <img  src={isImg ? Sun : Moon} alt="Moon" />
+      </button>
       </div>
     </div>
   );
