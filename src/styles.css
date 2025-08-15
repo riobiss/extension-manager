@@ -1,37 +1,54 @@
 @charset "utf-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
-:root {
-  --neutral-900: hsl(227, 75%, 14%);
-  --neutral-800: hsl(226, 25%, 17%);
-  --neutral-700: hsl(225, 23%, 24%);
-  --neutral-600: hsl(226, 11%, 37%);
-  --neutral-300: hsl(0, 0%, 78%);
-  --neutral-200: hsl(217, 61%, 90%);
-  --neutral-100: hsl(0, 0%, 93%);
-  --neutral-0: hsl(200, 60%, 99%);
+ :root {
+  --neutral-forte: hsl(0, 0%, 78%);
+  --neutral-terceira: hsl(217, 61%, 90%);
+  --neutral-secundaria: hsl(0, 0%, 93%);
+  --neutral-principal: hsl(200, 60%, 99%);
+  --contraste: rgb(0, 0, 0);
+
+  --shadow: 1px 1px 4px rgba(0, 0, 0, 0.365);
 
   --red-400: hsl(3, 86%, 64%);
   --red-500: hsl(3, 71%, 56%);
   --red-700: hsl(3, 77%, 44%);
 
-  --light-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
-  --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+  --cor-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
+
+} 
+
+
+[data-theme="dark"] {
+  --neutral-forte: hsl(227, 75%, 14%);
+  --neutral-terceira: hsl(226, 25%, 17%);
+  --neutral-secundaria: hsl(225, 23%, 24%);
+  --neutral-principal: hsla(226, 11%, 37%, 0.336);
+  --contraste: rgb(255, 255, 255);
+  --shadow: 1px 1px 4px rgba(199, 199, 199, 0.295);
+
+  --cor-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
+
 
 * {
   margin: 0px;
   padding: 0px;
   border: 0px;
   box-sizing: border-box;
-  color: white;
   font-family: "Noto sans";
 }
 
-body {
+#corpao {
   width: 100%;
-  background: var(--dark-gradient) no-repeat;
   overflow-x: hidden;
+  
+  background: var(--cor-gradient) no-repeat;
+  background-color: var(--neutral-forte);
+}
+
+h1, h2, p, #btnButtonMode {
+  color: var(--contraste);
 }
 
 .container {
@@ -51,16 +68,23 @@ body {
   justify-content: space-between;
   margin-top: 1rem;
   border-radius: 10px;
-  background-color: var(--neutral-700);
+  background-color: var(--neutral-principal);
   padding: 10px;
 }
 
 #btnThemeMode {
   width: 2.6rem;
   height: 2.6rem;
-  background-color: var(--neutral-600);
+  background-color: var(--neutral-secundaria);
   border-radius: 7px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#btnThemeMode img {
+  width: 100%;
+  max-width: 35px;
 }
 #categoriaCenter {
   margin-top: 2rem;
@@ -77,17 +101,27 @@ body {
   justify-content: space-evenly;
   padding: 10px;
   gap: 10px;
+
 }
 
 .selecao button {
-  background-color: var(--neutral-700);
+  background-color: var(--neutral-secundaria);
+  color: var(--contraste);
   font-size: 1.3rem;
   border-radius: 1.5rem;
-  padding: 0.9rem;
+  padding: 0.4rem;
   flex-basis: 300;
   flex-grow: 1;
   flex-shrink: 1;
   cursor: pointer; 
+  border: 1px solid var(--neutral-forte);
+  box-shadow: var(--shadow);
+}
+
+.selecao button:hover {
+  transition: .2s;
+  background-color: var(--red-500);
+  color: var(--neutral-forte);
 }
 .divisao {
   display: flex;
@@ -96,10 +130,10 @@ body {
 }
 
 .containerItem {
-  background-color: var(--neutral-700);
+  background-color: var(--neutral-principal);
   border-radius: 15px;
   padding: 20px;
-  border: 1px solid grey;
+  border: 1px solid var(--neutral-forte);
 }
 
 .logo {
@@ -113,16 +147,18 @@ body {
 }
 #remove {
   background-color: transparent;
-  border: 1px solid grey;
-  padding: 10px;
+  border: 1px solid var(--neutral-forte);
+  padding: 6px;
   border-radius: 20px;
   font-size: 1rem;
   cursor: pointer;
+  color: var(--contraste ) ;
 }
 
 #remove:hover {
-  background-color: var(--red-500);
-  color: var(--neutral-900);
+  transition: 0.2s;
+  background-color: var(--red-700);
+  color: var(--neutral-terceira);
 }
 #active {
   background-color: transparent;
@@ -151,7 +187,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--neutral-600); /* cor de fundo desligado */
+  background-color: var(--neutral-forte); /* cor de fundo desligado */
   transition: 0.3s;
   border-radius: 20px;
 }
@@ -164,17 +200,20 @@ body {
   width: 14px;
   left: 3px;
   bottom: 3px;
-  background-color: var(--neutral-0);
+  background-color: var(--neutral-principal);
   transition: 0.3s;
   border-radius: 50%;
 }
 
 /* Quando está ligado */
 .switch input:checked + .slider {
+  background-color: var(--red-700); /* mantém o fundo escuro */
+}
+.switch input:checked + .slider:hover {
   background-color: var(--red-400); /* mantém o fundo escuro */
 }
 
 .switch input:checked + .slider:before {
   transform: translateX(16px); /* move a bolinha pra direita */
-background-color: var(--neutral-0);
+background-color: var(--neutral-principal);
 }

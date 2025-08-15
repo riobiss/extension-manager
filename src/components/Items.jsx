@@ -4,10 +4,10 @@ import Entry from "./Entry";
 /* console.log(data)
 console.log(data[1].name)  */
 
-function CreateItems(ItemTerm) {
+function CreateItems(ItemTerm, data) {
   return (
     <Entry 
-      key={ItemTerm.id}
+      key={data}
       logo={ItemTerm.logo}
       name={ItemTerm.name}
       description={ItemTerm.description}

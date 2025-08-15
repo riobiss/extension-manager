@@ -1,5 +1,7 @@
 import React from "react";
+
 function Entry(props){
+
   return (
     <div className="containerItem">
     <img src={props.logo} alt="caraio" />
@@ -7,9 +9,9 @@ function Entry(props){
      <p className="infoItem">{props.description}</p>
      <div className="removeAndActive">
         <button id="remove">Remove</button>
-        <label class="switch">
+        <label className="switch">
           <input type="checkbox" />
-          <span class="slider"></span>
+          <span className="slider"></span>
         </label>
       </div>
     </div>

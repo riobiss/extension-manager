@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/images/logo.svg";
-import Sun from "../assets/images/icon-sun.svg"
-function Cabecalho() {
+import Sun from "../assets/images/icon-sun.svg";
+import Moon from "../assets/images/icon-moon.svg"
+
+function Cabecalho({isDark, toggleTheme}) {
+  const [isImg, setIsImg] = useState(true);
+
+  
+ const clickImg = () =>{
+  setIsImg(!isImg);
+  toggleTheme();
+ }
+
   return (
     <div className="extensionMode">
-      <img src={Logo} alt="Logo" />
-      <button className="focused" id="btnThemeMode"><img src={Sun} alt="Sun" /></button>
+      <img id="logoInit" src={Logo} alt="Logo" />
+      <div onClick={clickImg } id="btnThemeMode" className="focused">
+        <img  src={isImg ? Sun : Moon} alt="Moon" />
+      </div>
     </div>
   );
 }

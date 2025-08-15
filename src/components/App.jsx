@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Cabecalho from "./Cabecalho";
 import Categoria from "./Categoria";
-import Items  from "./Items";
+import Items from "./Items";
 import "../styles.css";
 
 function App() {
+  const [isDark, setIsDark] = useState(true);
+  const toggleTheme = () =>{ 
+    setIsDark(!isDark)
+  }
+
   return (
-    <div className="container">
-      <Cabecalho />
-      <Categoria />
-      <Items/>
+
+    <div id="corpao" data-theme={ isDark ? "dark" : "light"}>
+      <div className="container">
+        <Cabecalho isDark={isDark} toggleTheme={toggleTheme}/>
+        <Categoria />
+        <Items />
+      </div>
     </div>
   );
 }
