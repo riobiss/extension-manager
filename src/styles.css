@@ -151,24 +151,52 @@ input:focus {
   box-shadow: var(--shadow);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto;
   gap:  20px;
+}
+.info {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 2fr;
+  
 }
 
 .logos {
   float: left;
-  height: 3rem;
+  width: 70%;
+  height: 70%;
+  grid-row-start: 1;
+  grid-row-end: -1;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
-.container p {
-  font-size: 15px;
-  text-align: center;
+.nameItem {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: -1;
 }
+.infoItem{
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
 .removeAndActive {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: -1;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+
 }
 #remove {
   background-color: transparent;
