@@ -7,7 +7,6 @@
   --neutral-secundaria: hsl(0, 0%, 93%);
   --neutral-principal: hsl(200, 60%, 99%);
   --contraste: rgb(0, 0, 0);
-
   --shadow: 1px 1px 4px rgba(0, 0, 0, 0.365);
   --text: rgb(1, 1, 1);
 
@@ -24,11 +23,10 @@
   --neutral-secundaria: #4d4e53;
   --neutral-principal: #363740;
   --contraste: rgb(255, 255, 255);
-
   --shadow: 1px 1px 4px rgba(122, 122, 122, 0.144);
   --text: rgb(177, 177, 177);
 
-  --cor-gradient: linear-gradient(180deg, #1d1e26 0%, #091540 100%);
+  --cor-gradient: linear-gradient(180deg, #00020e 0%, #071133 100%);
 }
 
 * {
@@ -37,16 +35,18 @@
   border: 0px;
   box-sizing: border-box;
   font-family: "Noto sans";
+  
 }
 
 #corpao {
   width: 100%;
   overflow-x: hidden;
+  min-height: 100dvh;
   background: var(--cor-gradient) no-repeat;
-  background-color: var(--neutral-forte);
 }
 .container {
   width: 90%;
+  
   margin: auto;
   display: flex;
   flex-flow: column nowrap;
@@ -122,8 +122,12 @@ input:focus {
   flex-flow: row nowrap;
   padding: 10px;
   gap: 10px;
+  margin-bottom: 1rem;
 }
-
+.selecao button.activeFilter {
+  background-color: var(--red-700); /* cor do botão ativo */
+  color: var(--neutral-terceira);   /* texto do botão ativo */
+}
 .selecao button {
   background-color: var(--neutral-secundaria);
   font-size: 1.3rem;
@@ -147,6 +151,7 @@ input:focus {
   flex-flow: row wrap;
   gap: 10px;
   justify-content: center;
+  margin-bottom: 0.9rem;
 }
 
 .containerItem {
@@ -156,7 +161,6 @@ input:focus {
   padding: 20px;
   border: 1px solid var(--neutral-forte);
   box-shadow: var(--shadow);
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
