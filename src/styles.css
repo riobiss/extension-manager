@@ -9,7 +9,7 @@
   --contraste: rgb(0, 0, 0);
 
   --shadow: 1px 1px 4px rgba(0, 0, 0, 0.365);
-  --text: rgb(1, 1, 1);  
+  --text: rgb(1, 1, 1);
 
   --red-400: hsl(3, 86%, 64%);
   --red-500: hsl(3, 71%, 56%);
@@ -20,15 +20,15 @@
 
 [data-theme="dark"] {
   --neutral-forte: hsl(227, 75%, 14%);
-  --neutral-terceira: #1D1E26;
+  --neutral-terceira: #1d1e26;
   --neutral-secundaria: #4d4e53;
   --neutral-principal: #363740;
   --contraste: rgb(255, 255, 255);
-  
+
   --shadow: 1px 1px 4px rgba(122, 122, 122, 0.144);
   --text: rgb(177, 177, 177);
 
-  --cor-gradient: linear-gradient(180deg, #1D1E26 0%, #091540 100%);
+  --cor-gradient: linear-gradient(180deg, #1d1e26 0%, #091540 100%);
 }
 
 * {
@@ -56,7 +56,8 @@
 h1,
 h2,
 p,
-#btnButtonMode, .selecao button {
+#btnButtonMode,
+.selecao button {
   color: var(--text);
 }
 
@@ -101,19 +102,24 @@ input:focus {
   width: 60%;
   max-width: 35px;
 }
-#categoriaCenter {
-  margin-top: 2rem;
+#categoria {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 1137px) {
+  #categoria{justify-content: center;}
 }
 
 #extensionList {
-  text-align: center;
+  white-space: nowrap;
 }
 .selecao {
-  width: 90%;
-  margin: auto;
+  flex-basis: 300px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
   padding: 10px;
   gap: 10px;
 }
@@ -138,21 +144,23 @@ input:focus {
 }
 .divisao {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   gap: 10px;
-  
+  justify-content: center;
 }
 
 .containerItem {
   background-color: var(--neutral-principal);
   border-radius: 15px;
+  flex-basis: 500px;
   padding: 20px;
   border: 1px solid var(--neutral-forte);
   box-shadow: var(--shadow);
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap:  20px;
+  gap: 20px;
 }
 .info {
   grid-row-start: 1;
@@ -162,7 +170,6 @@ input:focus {
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 2fr;
-  
 }
 
 .logos {
@@ -180,7 +187,7 @@ input:focus {
   grid-column-start: 2;
   grid-column-end: -1;
 }
-.infoItem{
+.infoItem {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
@@ -196,7 +203,6 @@ input:focus {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-
 }
 #remove {
   background-color: transparent;
@@ -257,7 +263,6 @@ input:focus {
   background-color: white;
   transition: 0.3s;
   border-radius: 50%;
-  
 }
 
 /* Quando está ligado */
@@ -270,5 +275,4 @@ input:focus {
 
 .switch input:checked + .slider:before {
   transform: translateX(1rem); /* move a bolinha pra direita */
-
 }

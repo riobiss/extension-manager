@@ -12,8 +12,8 @@ function Entry(props) {
       </div>
       <div className="removeAndActive">
         <button id="remove">Remove</button>
-        <label className="switch">
-          <input type="checkbox" />
+        <label className="switch" >
+          <input type="checkbox" checked={props.ativacao} />
           <span className="slider"></span>
         </label>
       </div>
