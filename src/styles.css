@@ -35,7 +35,6 @@
   border: 0px;
   box-sizing: border-box;
   font-family: "Noto sans";
-  
 }
 
 #corpao {
@@ -46,7 +45,7 @@
 }
 .container {
   width: 90%;
-  
+
   margin: auto;
   display: flex;
   flex-flow: column nowrap;
@@ -65,7 +64,6 @@ p,
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin-top: 1rem;
   border-radius: 10px;
   background-color: var(--neutral-principal);
   padding: 10px;
@@ -109,10 +107,48 @@ input:focus {
   align-items: center;
   justify-content: space-between;
 }
-@media (max-width: 1137px) {
-  #categoria{justify-content: center;}
+@media (max-width: 1122px) {
+  .extensionMode {
+    width: 90vw;
+    max-width: 500px;
+    margin: 1rem auto auto auto;
+  }
+  #categoria {
+    justify-content: center;
+  }
 }
-
+@media (min-width: 1123px) {
+  .extensionMode {
+    width: 90vw;
+    max-width: 1000px;
+    margin: 1rem auto auto auto;
+  }
+  #categoria {
+    justify-content: space-around;
+    margin: auto;
+  }
+}
+@media (min-width: 1689px) {
+  #categoria {
+    width: 1600px;
+  }
+  .extensionMode {
+    max-width: 1550px;
+  }
+  #categoria {
+    justify-content: space-between;
+    margin: auto;
+  }
+  .selecao {
+    margin-right: 2%;
+  }
+  #extensionList {
+    margin-left: 3%;
+  }
+  .container {
+    width: 100vw;
+  }
+}
 #extensionList {
   white-space: nowrap;
 }
@@ -122,11 +158,10 @@ input:focus {
   flex-flow: row nowrap;
   padding: 10px;
   gap: 10px;
-  margin-bottom: 1rem;
 }
 .selecao button.activeFilter {
-  background-color: var(--red-700); /* cor do botão ativo */
-  color: var(--neutral-terceira);   /* texto do botão ativo */
+  background-color: var(--red-700);
+  color: var(--neutral-terceira); 
 }
 .selecao button {
   background-color: var(--neutral-secundaria);
@@ -228,7 +263,6 @@ input:focus {
   background-color: transparent;
 }
 
-/* Container do switch */
 .switch {
   position: relative;
   display: inline-block;
@@ -236,14 +270,12 @@ input:focus {
   height: 20px;
 }
 
-/* Esconde o checkbox padrão */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* Trilho */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -251,12 +283,11 @@ input:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(124, 124, 124); /* cor de fundo desligado */
+  background-color: rgb(124, 124, 124); 
   transition: 0.3s;
   border-radius: 20px;
 }
 
-/* Bolinha */
 .slider:before {
   position: absolute;
   content: "";
@@ -269,14 +300,13 @@ input:focus {
   border-radius: 50%;
 }
 
-/* Quando está ligado */
 .switch input:checked + .slider {
-  background-color: var(--red-700); /* mantém o fundo escuro */
+  background-color: var(--red-700); 
 }
 .switch input:checked + .slider:hover {
-  background-color: var(--red-400); /* mantém o fundo escuro */
+  background-color: var(--red-400); 
 }
 
 .switch input:checked + .slider:before {
-  transform: translateX(1rem); /* move a bolinha pra direita */
+  transform: translateX(1rem);
 }

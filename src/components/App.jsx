@@ -14,7 +14,6 @@ function App() {
     <div id="corpao" data-theme={ isDark ? "dark" : "light"}>
       <div className="container">
         <Cabecalho isDark={isDark} toggleTheme={toggleTheme}/>
- 
         <Items />
       </div>
     </div>

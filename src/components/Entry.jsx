@@ -23,7 +23,7 @@ function Entry(props) {
           <input
             type="checkbox"
             checked={props.ativacao}
-            onChange={() => props.onToggle(props.id)} // 🔥 controla ativo/inativo
+            onChange={() => props.onToggle(props.id)}
           />
           <span className="slider"></span>
         </label>
